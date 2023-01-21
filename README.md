@@ -9,25 +9,33 @@
 Как запустить проект:
 ---------------------
 Клонировать репозиторий и перейти в него в командной строке:
+git clone git@github.com:Kobilkina/api_final_yatube.git
+cd api_final_yatube
 
-git clone https://github.com/yandex-praktikum/kittygram_backend.git
-cd kittygram_backend
 Cоздать и активировать виртуальное окружение:
-
 python3 -m venv env
-Если у вас Linux/macOS
-
+_Если у вас Linux/macOS_
 source env/bin/activate
-Если у вас windows
-
+_Если у вас windows_
 source env/scripts/activate
+
+Устанавливаем пакетный менеджер:
 python3 -m pip install --upgrade pip
+
 Установить зависимости из файла requirements.txt:
-
 pip install -r requirements.txt
+
 Выполнить миграции:
-
 python3 manage.py migrate
-Запустить проект:
 
+Запустить проект:
 python3 manage.py runserver
+
+Описание проекта:
+-----------------
+Социальная сеть с возможностью создания постов с картинками,
+комментированием постов, групп постов и взаимных подписок
+
+Контакты:
+---------
+телеграм: @OKobilkina
