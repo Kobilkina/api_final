@@ -21,13 +21,13 @@ class Post(models.Model):
         User, on_delete=models.CASCADE,
         related_name='posts', verbose_name='Автор',)
     group = models.ForeignKey(
-                Group,
-                blank=True,
-                null=True,
-                on_delete=models.SET_NULL,
-                related_name='posts',
-                verbose_name='Группа',
-                help_text='Группа, к которой будет относиться пост')
+        Group,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name='posts',
+        verbose_name='Группа',
+        help_text='Группа, к которой будет относиться пост')
     image = models.ImageField(
         upload_to='posts/', null=True, blank=True)
 
