@@ -61,6 +61,9 @@ class Follow(models.Model):
         verbose_name = 'Подписчик'
         verbose_name_plural = 'Подписчики'
 
+    def __str__(self):
+        return self.name
+
 
 
 #from email.headerregistry import Group

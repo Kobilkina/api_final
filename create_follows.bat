@@ -1,0 +1,1 @@
+curl.exe -v -X POST -H "Content-Type: application/json" -H   "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0MzMwMTc1LCJqdGkiOiJmNDdkZjRhMjE2ZWM0NWI4YTA4YjE1OWI1OGRiNjZiMyIsInVzZXJfaWQiOjF9.dLNI6MkxWtJo8X1lMI9H3pcq5ueZbVHKU7mD24xhi9Y"   http://127.0.0.1:8000/api/v1/follow/
