@@ -23,13 +23,8 @@ class PostViewSet(viewsets.ModelViewSet):
 
     permission_classes = (IsOwnerOrReadOnly,)
 
-    # def get_group(self):
-    #    group_id = self.kwargs.get('group')
-    #    return get_object_or_404(Group, id=group_id)
-
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
-        # serializer.save(author=self.request.user, group=self.get_group())
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
@@ -41,11 +36,6 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = (IsOwnerOrReadOnly,)
-
-    # def get_permissions(self):
-    #    if self.action == 'retrieve':
-    #        return (ReadOnly(),)
-    #    return super().get_permissions()
 
     def get_post(self):
         post_id = self.kwargs.get('post_id')
@@ -65,34 +55,8 @@ class FollowViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ('following__username',)
 
-    # http_method_names = ["get", "post"]
-
     def get_queryset(self):
         return self.request.user.follower.all()
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-    # def get_following(self):
-    #    following = self.kwargs.get('following')
-    #    return get_object_or_404(User, username=following)
-
-    # def get_queryset(self):
-    #    return self.queryset.filter(user=self.request.user)
-    # return self.request.user.follower.all()
-
-    # def perform_create(self, serializer):
-    #    if 'following' not in self.kwargs:
-    #        return Response(status=status.HTTP_400_BAD_REQUEST)
-    # following = self.kwargs.get('following')
-    # if following == '':
-    #    return Response(status=status.HTTP_400_BAD_REQUEST)
-    # if self.request.user == self.get_following():
-    #    return Response(status=status.HTTP_400_BAD_REQUEST)
-    #    serializer.save(user=self.request.user)  #, following=self.get_following())
-
-    # def get_queryset(self):
-    #    search = self.kwargs['search']
-    #    if search:
-    #        return self.queryset.filter(following=search, user=self.request.user)
-    #    return self.queryset.filter(user=self.request.user)
