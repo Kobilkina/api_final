@@ -10,8 +10,7 @@ User = get_user_model()
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
-        # fields = ('id', 'title', 'slug', 'description')
-        fields = '__all__'
+        fields = ('id', 'title', 'slug', 'description')
         model = Group
 
 
@@ -44,13 +43,8 @@ class FollowSerializer(serializers.ModelSerializer):
         slug_field='username',
         queryset=User.objects.all(),
         validators=(FollowValidator(),),
-    )  # read_only=True)   #, allow_null=False)
+    )
 
     class Meta:
         fields = '__all__'
         model = Follow
-
-    # def validate(self, data):
-    #    if self.context['request'].user == data['following']:
-    #        raise serializers.ValidationError('cant follow yourself')
-    #    return data
